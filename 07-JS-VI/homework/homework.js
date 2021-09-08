@@ -28,13 +28,14 @@ function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
-  array.forEach(function(elemento) {
-    return cb(elemento);
-  });
-
-  /*for (var i = 0; i < array.length; i++) {
+  /* for (var i = 0; i < array.length; i++) {
     cb(array[i]);
-  }*/
+  } */
+
+  array.forEach(function(el, indice) {
+    cb(el);
+  })
+
 }
 
 function map(array, cb) {
@@ -42,31 +43,34 @@ function map(array, cb) {
   // Itera sobre cada valor en "array", pásalo a `cb` y luego ubicar el valor devuelto por `cb` en un nuevo array
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
-  /* return array.map(function(elemento) {
-    return cb(elemento);
-  })*/
-
-  var arr = [];
-  for (var i = 0; i < array.length; i++) {
-    arr.push(cb(array[i]));
+  /*var array2 = [];
+  for (var i=0; i<array.length; i++) {
+    array2.push(cb(array[i]));
   }
-  return arr; 
+  return array2; */
+
+  var array2 = array.map(function(el) {
+    return cb(el);
+  })
+
+  return array2;
+  
 }
 
 function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
-  return array.filter(function(elemento) {
-    return elemento[0] === "a"
-  })
- /*  var nuevoArr = [];
-  for (var i = 0; i < array.length; i++) {
+  /*var array2= [];
+  for (var i=0; i<array.length; i++) {
     if (array[i][0] === "a") {
-      nuevoArr.push(array[i]);
+      array2.push(array[i]);
     }
   }
-  return nuevoArr; */
+  return array2; */
+  return array.filter(function(el) {
+    return el[0] === "a";
+  })
 }
 
 // No modificar nada debajo de esta línea
